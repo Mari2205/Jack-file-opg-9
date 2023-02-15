@@ -1,0 +1,98 @@
+class Circle{
+
+    field int x, y;
+    field int direction;
+
+    constructor Circle new(int Ax, int Ay){
+        let x = Ax;
+        let y = Ay;
+        do draw();
+        let direction = 0;
+        return this;
+    }
+
+    method void draw (){
+        do Screen.setColor(true);
+        //do Screen.drawCircle(256, 128, 15);
+        do Screen.drawCircle(x, y, 15);
+
+        //do Screen.drawRectangle(x, (x + 10), y, (y + 10));
+        do Screen.drawRectangle(200, 145, 306, 155);
+        return;
+    }
+
+    method void moveUp(){
+        if (y > 1) {
+            do Screen.setColor(false);
+            do Screen.drawCircle(x, y + 1, 15);
+            let y = y - 2;
+            do Screen.setColor(true);
+            do Screen.drawCircle(x, y + 1, 15);
+         }
+         return;
+    }
+
+    method void movedown(){
+        if (y > 1) {
+            do Screen.setColor(false);
+            do Screen.drawCircle(x, y - 1, 15);
+            let y = y + 2;
+            do Screen.setColor(true);
+            do Screen.drawCircle(x, y - 1, 15);
+         }
+         return;
+    }
+
+    method void moveCircle () {
+        if(direction = 1) {do moveUp();}
+        if(direction = 2) {do movedown();}
+        //let direction = 0;
+        do Sys.wait(5);
+        return;
+    }
+
+    method void circleJmp() {
+        var int index;
+        let index = 0;
+    if(direction = 1)
+    {
+        while (index < 20) {
+            do moveCircle();
+            //do Output.printInt(index);
+            let index = index + 1;
+        }
+        do Sys.wait(90);
+        let direction = 2;
+    }
+    if(direction = 2)
+    {
+        while (index > 0) {
+            do moveCircle();
+            let index = index - 1;
+        }
+        let direction = 0;
+    }  
+
+        return;
+    }
+
+    method void run () {
+        var char key;
+        var boolean exit;
+        let exit = false;
+
+        while (~exit) {
+            while (key = 0) {
+                let key = Keyboard.keyPressed();
+                do circleJmp();
+            }
+            if (key = 131) {let direction = 1;} // up arrow
+
+            while (~(key = 0)) {
+                let key = Keyboard.keyPressed();
+                do circleJmp();
+            }
+        }
+        return;
+    }
+}

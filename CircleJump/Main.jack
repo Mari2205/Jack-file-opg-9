@@ -1,0 +1,37 @@
+
+class Main{
+
+
+
+    function void main () {
+        var Circle circle;
+        let circle = Circle.new(256, 128);
+        //do circle.draw();
+        do circle.run();
+        return;
+    }
+
+   // method void moveCircle () {
+   //     do circle.moveUp();
+   //     return;
+   // }
+
+   // method void run () {
+   //     var char key;
+
+   //     while (key = 0) {
+   //         let key = keyboard.keyPressed();
+   //         do moveCircle();
+   //     }
+   //     if (key = 131) {let direction = 1;} // up arrow
+   //     
+   //     while (~(key = 0)) {
+   //         let key = keyboard.keyPressed();
+   //         do moveCircle();
+   //     }
+   // 
+   //     return;
+   // }
+
+
+}
